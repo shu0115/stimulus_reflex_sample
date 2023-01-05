@@ -1,0 +1,54 @@
+<h1>Pages#index</h1>
+<p>Find me in app/views/pages/index.html.erb</p>
+
+<a href="#" data-reflex="click->Counter#increment" data-step="1" data-count="<%= @count.to_i %>">
+  Increment
+  <%= @count.to_i %>
+</a>
+
+<br>
+<br>
+
+<div data-reflex-root="[forward], [backward]">
+  <input type="text" value="<%= @words %>" data-reflex="keyup->Counter#words">
+
+  <div forward><%= @words %></div>
+  <div backward><%= @words&.reverse %></div>
+</div>
+
+<div data-reflex-root=".forward, #backward">
+  <input type="text" value="<%= @words %>" data-reflex="keyup->Counter#words">
+
+  <div class="forward"><%= @words %></div>
+  <div id="backward"><%= @words&.reverse %></div>
+</div>
+
+<br>
+<br>
+
+<a href="#" data-reflex="click->Counter#decrement" data-step="1" data-count="<%= @count.to_i %>">
+  Decrement
+  <div id="decrement_result"><%= @count.to_i %></div>
+  <div id="decrement_result_1"><%= @count.to_i %></div>
+  <div id="decrement_result_2"><%= @count.to_i %></div>
+</a>
+
+<br>
+<br>
+
+<header data-reflex="click->Counter#change">
+  <%#= render partial: "/pages/parts", locals: { message: "Am I the medium or the massage?" } %>
+</header>
+
+<br>
+<br>
+
+<header id="change_count" >
+  <%= render partial: "/pages/parts", locals: { count: @count } %>
+</header>
+
+<br>
+<br>
+<br>
+<br>
+<br>
